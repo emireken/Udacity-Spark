@@ -71,7 +71,6 @@ def run_spark_job(spark):
         .outputMode('Complete') \
         .start()
 
-
     # TODO attach a ProgressReporter
     query.awaitTermination()
 
@@ -88,9 +87,7 @@ def run_spark_job(spark):
     # TODO join on disposition column
     join_query = agg_df.join(radio_code_df, col('agg_df.disposition') == col('radio_code_df.disposition'), 'left_outer')
 
-
     join_query.awaitTermination()
-
 
 if __name__ == "__main__":
     logger = logging.getLogger(__name__)

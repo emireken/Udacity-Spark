@@ -2,10 +2,9 @@ from kafka import KafkaProducer
 import json
 import time
 
-
 class ProducerServer(KafkaProducer):
-    
-    print("Running producer server")
+
+    print("Producer Server is running...")
 
     def __init__(self, input_file, topic, **kwargs):
         super().__init__(**kwargs)
@@ -25,4 +24,3 @@ class ProducerServer(KafkaProducer):
     # TODO fill this in to return the json dictionary to binary
     def dict_to_binary(self, json_dict):
         return json.dumps(json_dict).encode('utf-8')
-        
